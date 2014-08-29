@@ -24,8 +24,11 @@
     <script src="./dist/physdom.js"></script>
     <script>
 
-        var body = new PHYSDOM.Body();
-        console.log(body.test());
+        var testBox = document.getElementById('test');
+        var body = new PHYSDOM.Body(testBox);
+
+        PHYSDOM.init();
+
 //        function Body() {
 //            this.el = document.getElementById('test');
 //            this.width = this.el.offsetWidth;
