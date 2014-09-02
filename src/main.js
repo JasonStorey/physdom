@@ -1,9 +1,9 @@
-define(['cannon', 'world', 'body'], function(CANNON, world, Body) {
+define(['oimo', 'world', 'body'], function(OIMO, world, Body) {
     function init(config) {
         world.addBoundary(config.height);
 
         setInterval(function(){
-            world.step(1.0/60.0);
+            world.step();
         }, 1000.0/60.0);
     }
 

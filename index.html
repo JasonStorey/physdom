@@ -16,16 +16,18 @@
             width: 100px;
             height: 100px;
             cursor: pointer;
+            margin-left: 50%;
         }
     </style>
   </head>
   <body>
-    <div id="test" class="box"></div>
+    <div id="left" class="box"></div>
+    <div id="right" class="box"></div>
     <script src="./dist/physdom.js"></script>
     <script>
+        var leftBody = new PHYSDOM.Body(document.getElementById('left'));
+        var rightBody = new PHYSDOM.Body(document.getElementById('right'));
 
-        var testBox = document.getElementById('test');
-        var body = new PHYSDOM.Body(testBox);
         var config = {
             height: window.document.documentElement.clientHeight
         };

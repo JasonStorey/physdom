@@ -13,12 +13,18 @@ module.exports = function(grunt) {
                     out: 'dist/physdom.js',
                     optimize: 'none',
                     cjsTranslate: true,
+                    wrapShim: true,
                     wrap: {
                         startFile: 'src/start.frag',
                         endFile: 'src/end.frag'
                     },
                     paths: {
-                        cannon: '../node_modules/cannon/build/cannon'
+                        oimo: '../lib/Oimo'
+                    },
+                    shim: {
+                        oimo: {
+                            exports: "OIMO"
+                        }
                     }
                 }
             }

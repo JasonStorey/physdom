@@ -6,10 +6,8 @@
   "dependencies": {},
   "devDependencies": {
     "almond": "^0.3.0",
-    "cannon": "^0.5.0",
     "grunt": "^0.4.5",
-    "grunt-contrib-requirejs": "^0.4.4",
-    "requirejs": "^2.1.14"
+    "grunt-contrib-requirejs": "^0.4.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

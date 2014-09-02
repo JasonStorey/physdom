@@ -1,35 +1,34 @@
-define(['cannon'], function(CANNON) {
+define(['oimo'], function(OIMO) {
     var _world,
-        bodies = [];
+        bodies = [],
+        boundaries = [];
 
-    _world = new CANNON.World();
-    _world.gravity.set(0,0,-100);
-    _world.broadphase = new CANNON.NaiveBroadphase();
+    _world = new OIMO.World(1.0/60.0);
+    _world.gravity = new OIMO.Vec3(0, 9.80665, 0);
 
     function add(body) {
         bodies.push(body);
-        _world.add(body.rigidBody);
     }
 
-    function step(dt) {
-        _world.step(dt);
+    function step(timeStep) {
+        _world.step(timeStep);
         bodies.forEach(function(body){
             body.render();
         });
     }
 
     function addBoundary(y) {
-        var boundaryShape,
-            boundaryBody;
-        boundaryShape = new CANNON.Plane();
-        boundaryBody = new CANNON.RigidBody(0, boundaryShape);
-        boundaryBody.position.set(0,0,y * -1);
-        _world.add(boundaryBody);
+        boundaries.push(new OIMO.Body({size:[100000, 1, 100000], pos:[0, y, 0], world: _world}));
+    }
+
+    function getWorld() {
+        return _world;
     }
 
     return {
         step: step,
         add: add,
-        addBoundary: addBoundary
+        addBoundary: addBoundary,
+        getWorld: getWorld
     };
 });
