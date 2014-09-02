@@ -11,8 +11,14 @@
             margin: 0;
             perspective: 1000px;
         }
-        .box {
+
+        #left.box {
             background-color: blue;
+        }
+        #right.box {
+            background-color: green;
+        }
+        .box {
             width: 100px;
             height: 100px;
             cursor: pointer;
@@ -23,6 +29,7 @@
   <body>
     <div id="left" class="box"></div>
     <div id="right" class="box"></div>
+
 
     <script src="./dist/physdom.js"></script>
     <script>
