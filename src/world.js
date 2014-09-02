@@ -22,6 +22,7 @@ define(['oimo'], function(OIMO) {
             size: [100000000, 100, 100000000000000],
             pos: [0, y + 50, 0],
             world: _world,
+            config: [100, 10, 0.2],
             move: false
         });
         boundaries.push(boundary);

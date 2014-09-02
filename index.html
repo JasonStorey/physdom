@@ -40,12 +40,15 @@
             height: window.document.documentElement.clientHeight
         };
 
-        leftBody.element.addEventListener('click', function(){
+        leftBody.element.addEventListener('click', function() {
              leftBody.addForce(0, -1, -1);
         });
 
-        PHYSDOM.init(config);
+        rightBody.element.addEventListener('click', function() {
+            rightBody.reset();
+        });
 
+        PHYSDOM.init(config);
     </script>
   </body>
 </html>
