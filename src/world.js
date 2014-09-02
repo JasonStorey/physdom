@@ -18,7 +18,13 @@ define(['oimo'], function(OIMO) {
     }
 
     function addBoundary(y) {
-        boundaries.push(new OIMO.Body({size:[100000, 1, 100000], pos:[0, y, 0], world: _world}));
+        var boundary = new OIMO.Body({
+            size: [100000000, 100, 100000000000000],
+            pos: [0, y + 50, 0],
+            world: _world,
+            move: false
+        });
+        boundaries.push(boundary);
     }
 
     function getWorld() {

@@ -23,6 +23,7 @@
   <body>
     <div id="left" class="box"></div>
     <div id="right" class="box"></div>
+
     <script src="./dist/physdom.js"></script>
     <script>
         var leftBody = new PHYSDOM.Body(document.getElementById('left'));
@@ -31,6 +32,10 @@
         var config = {
             height: window.document.documentElement.clientHeight
         };
+
+        leftBody.element.addEventListener('click', function(){
+             leftBody.addForce(0, -1, -1);
+        });
 
         PHYSDOM.init(config);
 

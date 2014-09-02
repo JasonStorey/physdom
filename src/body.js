@@ -6,16 +6,29 @@ define(['oimo', 'world'], function(OIMO, world) {
         this.height = this.element.offsetHeight;
         this.offsetTop = this.element.offsetTop;
         this.offsetLeft = this.element.offsetLeft;
+
+        var shapePhysics = {
+            density: 10,
+            friction: 1,
+            restitution: 1
+        };
+
         this.shape = new OIMO.Body({
             type: 'box',
-            size: [this.width, this.height, 100],
+            size: [this.width, this.height, 1],
             pos: [this.offsetLeft + (this.width /2), this.offsetTop + (this.height / 2), 0],
             move: true,
+            config: [shapePhysics.density, shapePhysics.friction, shapePhysics.restitution],
             world: world.getWorld()
         });
 
         world.add(this);
     }
+
+    Body.prototype.addForce = function addForce(x, y, z) {
+        var force = new OIMO.Vec3(x, y, z);
+        this.shape.body.applyImpulse(this.shape.body.position.clone(), force);
+    };
 
     Body.prototype.render = function render() {
         var matrix,
