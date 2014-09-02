@@ -13,8 +13,6 @@ define(['cannon', 'world'], function(CANNON, world){
             rot = this.rigidBody.quaternion;
 
         this.element.style.transform = getCSSString(pos, rot);
-//        console.log(this.rigidBody.position);
-//        console.log(this.rigidBody.quaternion);
     };
 
     function getCSSString(pos, rot) {

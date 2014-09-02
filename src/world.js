@@ -3,12 +3,8 @@ define(['cannon'], function(CANNON) {
         bodies = [];
 
     _world = new CANNON.World();
-    _world.gravity.set(0,0,-90.82);
+    _world.gravity.set(0,0,-100);
     _world.broadphase = new CANNON.NaiveBroadphase();
-
-//    var groundShape = new CANNON.Plane();
-//    var groundBody = new CANNON.RigidBody(0, groundShape);
-//    _world.add(groundBody);
 
     function add(body) {
         bodies.push(body);
@@ -22,8 +18,18 @@ define(['cannon'], function(CANNON) {
         });
     }
 
+    function addBoundary(y) {
+        var boundaryShape,
+            boundaryBody;
+        boundaryShape = new CANNON.Plane();
+        boundaryBody = new CANNON.RigidBody(0, boundaryShape);
+        boundaryBody.position.set(0,0,y * -1);
+        _world.add(boundaryBody);
+    }
+
     return {
         step: step,
-        add: add
+        add: add,
+        addBoundary: addBoundary
     };
 });
