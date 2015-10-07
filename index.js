@@ -12,7 +12,7 @@ function init(config) {
     physBodies.map(physBody => Physics.addPhysBody(physBody));
 
     Physics.addPhysBody(createPhysPlane({
-        position: Physics.createVector(0,0,-config.height)
+        position: Physics.createVector(0, config.height, 0)
     }));
     Physics.start();
 }
